@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoConsultorio.Domain\ProjetoConsultorio.Domain.csproj" />
+    <ProjectReference Include="..\ProjetoConsultorio.Infrastructure.Data\ProjetoConsultorio.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>
