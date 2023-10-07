@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ProjetoConsultorio.Application.Models;
+using ProjetoConsultorio.Domain.entidades;
+using ProjetoConsultorio.Domain.interfaces;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,11 +19,12 @@ namespace ProjetoConsultorio.Application.Controllers
     public class UsuarioController : ControllerBase
     {
         private IConfiguration _config;
-        public UsuarioController(IConfiguration Configuration)
+        private IBaseService<Usuario> _service;
+        public UsuarioController(IConfiguration Configuration,
+            IBaseService<Usuario> service)
         {
             _config = Configuration;
-
-
+            _service = service;
         }
         private string GerarTokenJWT()
         {
@@ -37,27 +40,34 @@ expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
             return stringToken;
         }
 
-        private bool ValidarUsuario(UsuarioModel loginDetalhes)
+        private UsuarioModel ValidarUsuario(UsuarioModel loginDetalhes)
         {
-            if (loginDetalhes.email == "gustavo@gmail.com" && loginDetalhes.senha == "123")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            var usuario = _service.GetFiltro<UsuarioModel>(
+               p => p.email == loginDetalhes.email
+               && p.senha == loginDetalhes.senha, //where
+               null,
+               "", null).FirstOrDefault();
+
+            return usuario;
         }
 
         [HttpPost]
-        [Route("validarLogin")]
+        [Route("validaLogin")]
         public IActionResult Login([FromBody] UsuarioModel loginDetalhes)
         {
-            bool resultado = ValidarUsuario(loginDetalhes);
-            if (resultado)
+            UsuarioModel usu = ValidarUsuario(loginDetalhes);
+            if (usu != null)
             {
+
+
                 var tokenString = GerarTokenJWT();
-                return Ok(new { token = tokenString, email =loginDetalhes.email });
+                return Ok(new
+                {
+                    token = tokenString,
+                    id = usu.id,
+                    nome = usu.nome
+                });
             }
             else
             {
