@@ -20,12 +20,15 @@ namespace ProjetoConsultorio.Application.Controllers
     {
         private IConfiguration _config;
         private IBaseService<Usuario> _service;
-        public UsuarioController(IConfiguration Configuration,
-            IBaseService<Usuario> service)
-        {
+
+        public UsuarioController(IConfiguration Configuration, 
+            IBaseService<Usuario> service) {
             _config = Configuration;
             _service = service;
         }
+
+
+
         private string GerarTokenJWT()
         {
             var issuer = _config["Jwt:Issuer"];
@@ -40,34 +43,32 @@ expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
             return stringToken;
         }
 
+
         private UsuarioModel ValidarUsuario(UsuarioModel loginDetalhes)
         {
 
             var usuario = _service.GetFiltro<UsuarioModel>(
-               p => p.email == loginDetalhes.email
-               && p.senha == loginDetalhes.senha, //where
-               null,
-               "", null).FirstOrDefault();
+               p => p.email== loginDetalhes.email 
+               && p.senha==loginDetalhes.senha, 
+               null,"", null).FirstOrDefault();
 
             return usuario;
         }
+
 
         [HttpPost]
         [Route("validaLogin")]
         public IActionResult Login([FromBody] UsuarioModel loginDetalhes)
         {
             UsuarioModel usu = ValidarUsuario(loginDetalhes);
-            if (usu != null)
+            if (usu!=null)
             {
-
+      
 
                 var tokenString = GerarTokenJWT();
-                return Ok(new
-                {
-                    token = tokenString,
-                    id = usu.id,
-                    nome = usu.nome
-                });
+                return Ok(new { token = tokenString , 
+                                id = usu.id, 
+                                nome = usu.nome });
             }
             else
             {

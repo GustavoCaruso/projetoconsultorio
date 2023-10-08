@@ -32,7 +32,7 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=Projeto28;integrated security=true;";
+            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=Projeto29;integrated security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(stringConexao);

@@ -1,4 +1,6 @@
-﻿$(document).ready(function () {
+﻿
+$(document).ready(function () {
+
     $("#btnenviar").click(function () {
 
         const usuario = {
@@ -8,22 +10,28 @@
             "senha": $("#txtsenha").val()
         }
 
-        //requisição
+        //requisicao
         $.ajax({
             type: "POST",
-            url: "http://localhost:33186/api/Usuario/validarLogin",
+            url: "http://localhost:33186/api/Usuario/validaLogin",
             contentType: "application/json;charset=utf-8",
             data: JSON.stringify(usuario),
             dataType: "json",
             success: function (jsonResult) {
-                console.log("logado!")
+                console.log(jsonResult)
                 sessionStorage.setItem('token', jsonResult.token);
-                window.location.href = "cadproduto.html"
+                sessionStorage.setItem('idUsuario', jsonResult.id);
+                sessionStorage.setItem('nomeUsuario', jsonResult.nome);
+                window.location.href = "index.html"
             },
             failure: function (response) {
                 alert("Erro ao carregar os dados: " + response);
             }
         });
 
+
     });
+
+
+
 });
