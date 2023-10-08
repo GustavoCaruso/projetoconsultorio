@@ -4,7 +4,7 @@ if (token == null || token == "")
     window.location.href = 'login.html'
 
 
-const urlAPI = "https://localhost:44353/"
+const urlAPI = "http://localhost:33186/"
 
 $(document).ready(function () {
 
