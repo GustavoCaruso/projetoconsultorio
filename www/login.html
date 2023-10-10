@@ -3,29 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Consultório Médico - Login</title>
+    <title>Acesso - Consultório médico</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div style="background-color: #EFEFEF; border-radius:5px; padding:10px "; class="col-md-6">
+                <h2 class="text-center">Consultório médico</h2>
                 <form>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail!">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="txtsenha">
+                        <label for="exampleInputPassword1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="txtsenha" placeholder="Digite a sua senha!">
                     </div>
                     <div class="mb-3 form-check">
                         <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
                     </div>
-                    <button type="button" id="btnenviar" class="btn btn-primary">Entrar</button>
+                    <div class="text-center">
+                        <button type="button" id="btnenviar" class="btn btn-success mx-auto">Entrar</button>
+                        <button type="button" id="btncadastrar" class="btn btn-primary mx-auto">Cadastrar-se</button>
+                    </div>
                    
                 </form>
             </div>
