@@ -1,5 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ProjetoConsultorio.Application.Models;
+using ProjetoConsultorio.Domain.entidades;
+using ProjetoConsultorio.Domain.interfaces;
+using ProjetoConsultorio.Service.validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,29 +16,29 @@ namespace ProjetoConsultorio.Application.Controllers
     public class ProcedimentoController : ControllerBase
     {
         //dependa sempre de interface
-        private IBaseService<Categoria> _service;
+        private IBaseService<Procedimento> _service;
 
-        public CategoriaController(IBaseService<Categoria> service)
+        public ProcedimentoController(IBaseService<Procedimento> service)
         {
             _service = service;
         }
 
         [HttpPost]
-        public IActionResult inserir(CategoriaModel categoria)
+        public IActionResult inserir(ProcedimentoModel procedimento)
         {
-            if (categoria == null)
+            if (procedimento == null)
                 return NotFound();
             else
-                return Execute(() => _service.Add<CategoriaModel, CategoriaValidator>(categoria));
+                return Execute(() => _service.Add<ProcedimentoModel, ProcedimentoValidator>(procedimento));
         }
 
         [HttpPut]
-        public IActionResult alterar(CategoriaModel categoria)
+        public IActionResult alterar(ProcedimentoModel procedimento)
         {
-            if (categoria == null)
+            if (procedimento == null)
                 return NotFound();
             else
-                return Execute(() => _service.Update<CategoriaModel, CategoriaValidator>(categoria));
+                return Execute(() => _service.Update<ProcedimentoModel, ProcedimentoValidator>(procedimento));
         }
 
         [HttpDelete("{id}")]
@@ -55,20 +59,20 @@ namespace ProjetoConsultorio.Application.Controllers
             if (id == 0)
                 return NotFound();
 
-            return Execute(() => _service.GetById<CategoriaModel>(id));
+            return Execute(() => _service.GetById<ProcedimentoModel>(id));
         }
         [HttpGet]
         public IActionResult selecionarTodos()
         {
 
-            return Execute(() => _service.Get<CategoriaModel>());
+            return Execute(() => _service.Get<ProcedimentoModel>());
         }
 
         [HttpGet]
-        [Route("getCategoriaFiltro/{descricao}")]
-        public IActionResult selecionarCategoriaNome(string descricao)
+        [Route("getProcedimentoFiltro/{nome}")]
+        public IActionResult selecionarProcedimentoNome(string nome)
         {
-            return Execute(() => _service.GetFiltro<CategoriaModel>(p => p.descricao.Contains(descricao), null, null));
+            return Execute(() => _service.GetFiltro<ProcedimentoModel>(p => p.nome.Contains(nome), null, null));
 
         }
 
