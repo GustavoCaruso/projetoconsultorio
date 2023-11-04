@@ -20,19 +20,18 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
         public DbSet<Medico> medico { get; set; }
         public DbSet<Paciente> paciente { get; set; }
         public DbSet<Disponibilidade> disponibilidade { get; set; }
-
         public DbSet<Convenio> convenio { get; set; }
         public DbSet<MedicoConvenio> medicoconvenio { get; set; }
         public DbSet<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
         public DbSet<MedicoDisponibilidade> medicodisponibilidade { get; set; }
         public DbSet<StatusConsulta> statusconsulta { get; set; }
-
+        public DbSet<Procedimento> procedimento { get; set; }
         public DbSet<Usuario> usuario { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=Projeto30;integrated security=true;";
+            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=Projeto32;integrated security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(stringConexao);
@@ -44,7 +43,6 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
             modelBuilder.Entity<Produto>(new ProdutoMap().Configure);
             modelBuilder.Entity<Categoria>(new CategoriaMap().Configure);
             modelBuilder.Entity<Paciente>(new PacienteMap().Configure);
-
             modelBuilder.Entity<Medico>(new MedicoMap().Configure);
             modelBuilder.Entity<Disponibilidade>(new DisponibilidadeMap().Configure);
             modelBuilder.Entity<Convenio>(new ConvenioMap().Configure);
@@ -53,6 +51,7 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
             modelBuilder.Entity<MedicoDisponibilidade>(new MedicoDisponibilidadeMap().Configure);
             modelBuilder.Entity<StatusConsulta>(new StatusConsultaMap().Configure);
             modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
+            modelBuilder.Entity<Procedimento>(new ProcedimentoMap().Configure);
 
 
         }

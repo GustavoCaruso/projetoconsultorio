@@ -10,7 +10,7 @@ namespace ProjetoConsultorio.Domain.entidades
     {
         public Convenio()
         {
-            medicoconvenio = new List<MedicoConvenio>();
+            this.medicoconvenio = new List<MedicoConvenio>();
         }
         public string nome { get; set; }
         public List<MedicoConvenio> medicoconvenio { get; set; }

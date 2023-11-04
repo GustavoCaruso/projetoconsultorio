@@ -11,10 +11,15 @@ namespace ProjetoConsultorio.Application.Models
     {
         public int id { get; set; }
         public string nome { get; set; }
+        public DateTime dataNascimento { get; set; }
+        public string genero { get; set; }
+        public string enderecoResidencial { get; set; }
+        public string numeroTelefone { get; set; }
+        public string email { get; set; }
         public string crm { get; set; }
         public string especializacao { get; set; }
 
-        [JsonIgnore]
+        
         public List<MedicoConvenio> medicoconvenio { get; set; }
         [JsonIgnore]
         public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }

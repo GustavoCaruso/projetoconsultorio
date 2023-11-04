@@ -135,8 +135,9 @@ namespace ProjetoConsultorio.Application
             services.AddScoped<IBaseService<Convenio>, BaseService<Convenio>>();
             services.AddScoped<IBaseRepository<Convenio>, BaseRepository<Convenio>>();
 
-            //services.AddScoped<IBaseService<MedicoConvenio>, BaseService<MedicoConvenio>>();
-            //services.AddScoped<IBaseRepository<MedicoConvenio>, BaseRepository<MedicoConvenio>>();
+            services.AddScoped<IBaseService<MedicoConvenio>, BaseService<MedicoConvenio>>();
+            services.AddScoped<IBaseRepository<MedicoConvenio>, BaseRepository<MedicoConvenio>>();
+
 
             services.AddScoped<IBaseService<ConsultaMedicoPaciente>, BaseService<ConsultaMedicoPaciente>>();
             services.AddScoped<IBaseRepository<ConsultaMedicoPaciente>, BaseRepository<ConsultaMedicoPaciente>>();

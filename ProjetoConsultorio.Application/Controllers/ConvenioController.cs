@@ -22,37 +22,34 @@ namespace ProjetoConsultorio.Application.Controllers
             _service = service;
         }
 
+
         [HttpPost]
-        public IActionResult Inserir(ConvenioModel convenioModel)
+        public IActionResult Inserir(ConvenioModel convenio)
         {
-            try
-            {
-                if (convenioModel == null)
+            
+                if (convenio == null)
                     return NotFound();
 
-                // Limpe os campos relacionados que não devem ser inseridos no banco de dados.
-                convenioModel.medicoConvenio = null; // Suponhamos que você não queira inserir médicos relacionados.
+                
+                convenio.medicoConvenio = null; 
 
-                // Use o serviço para adicionar o convênio ao banco de dados
-                _service.Add<ConvenioModel, ConvenioValidator>(convenioModel);
+               
+                return Execute(() => _service.Add<ConvenioModel, ConvenioValidator>(convenio));
 
-                return Ok("Convênio inserido com sucesso.");
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao inserir o convênio: {ex.Message}");
-            }
+               
+           
+            
         }
 
 
 
         [HttpPut]
-        public IActionResult alterar(ConvenioModel Convenio)
+        public IActionResult alterar(ConvenioModel convenio)
         {
-            if (Convenio == null)
+            if (convenio == null)
                 return NotFound();
             else
-                return Execute(() => _service.Update<ConvenioModel, ConvenioValidator>(Convenio));
+                return Execute(() => _service.Update<ConvenioModel, ConvenioValidator>(convenio));
         }
 
         [HttpDelete("{id}")]
@@ -65,7 +62,7 @@ namespace ProjetoConsultorio.Application.Controllers
                 _service.Delete(id);
                 return true;
             });
-            //return new NoContentResult();
+           
         }
         [HttpGet("{id}")]
         public IActionResult Get(int id)
@@ -83,10 +80,10 @@ namespace ProjetoConsultorio.Application.Controllers
         }
 
         [HttpGet]
-        [Route("getConvenioFiltro/{descricao}")]
-        public IActionResult selecionarConvenioNome(string descricao)
+        [Route("getConvenioFiltro/{nome}")]
+        public IActionResult selecionarConvenioNome(string nome)
         {
-            return Execute(() => _service.GetFiltro<ConvenioModel>(p => p.nome.Contains(descricao), null, null));
+            return Execute(() => _service.GetFiltro<ConvenioModel>(p => p.nome.Contains(nome), null, null));
 
         }
 

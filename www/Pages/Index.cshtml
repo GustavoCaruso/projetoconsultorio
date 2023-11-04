@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Acesso - Consultório médico</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div style="background-color: #EFEFEF; border-radius:5px; padding:10px " ; class="col-md-6">
+                <h2 class="text-center">Consultório médico</h2>
+                <form>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">E-mail</label>
+                        <input type="email" class="form-control" id="txtemail" aria-describedby="emailHelp" placeholder="Digite o seu e-mail!">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Senha</label>
+                        <input type="password" class="form-control" id="txtsenha" placeholder="Digite a sua senha!">
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Lembrar-me</label>
+                    </div>
+                    <div class="text-center">
+                        <button type="button" id="btnenviar" class="btn btn-success mx-auto">Entrar</button>
+                        <a href="/CadastroUsuario" id="btncadastrar" class="btn btn-primary mx-auto">Cadastrar-se</a>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+
+    <script src="~/js/login.js"></script>
+</body>
+</html>
+

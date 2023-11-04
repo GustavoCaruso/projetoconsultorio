@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using ProjetoConsultorio.Application.Models;
 using ProjetoConsultorio.Domain.entidades;
 using ProjetoConsultorio.Domain.interfaces;
+using ProjetoConsultorio.Service.validators;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -26,9 +27,37 @@ namespace ProjetoConsultorio.Application.Controllers
             _config = Configuration;
             _service = service;
         }
+        [HttpPost]
+        public IActionResult inserir(UsuarioModel Usuario)
+        {
+            if (Usuario == null)
+                return NotFound();
+
+            
+            var existingUser = _service.GetFiltro<UsuarioModel>(p => p.email == Usuario.email, null, "", null).FirstOrDefault();
+            if (existingUser != null)
+            {
+                return StatusCode(StatusCodes.Status409Conflict, new { message = "Um usuário com este email já existe." });
+            }
+
+        
+            return Execute(() => _service.Add<UsuarioModel, UsuarioValidator>(Usuario));
+        }
 
 
+        private IActionResult Execute(Func<object> func)
+        {
+            try
+            {
+                var result = func();
 
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
+        }
         private string GerarTokenJWT()
         {
             var issuer = _config["Jwt:Issuer"];

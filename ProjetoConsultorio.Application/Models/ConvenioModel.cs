@@ -11,7 +11,6 @@ namespace ProjetoConsultorio.Application.Models
     {
         public int id { get; set; }
         public string nome { get; set; }
-
         [JsonIgnore]
         public List<MedicoConvenio> medicoConvenio { get; set; }
     }

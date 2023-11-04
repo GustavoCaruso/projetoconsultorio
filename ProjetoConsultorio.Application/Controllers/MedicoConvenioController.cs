@@ -46,7 +46,7 @@ namespace ProjetoConsultorio.Application.Controllers
                 _context.medicoconvenio.Add(medicoConvenio);
                 await _context.SaveChangesAsync();
 
-          
+
 
                 return Ok("Convênio associado ao médico com sucesso.");
             }
@@ -54,7 +54,7 @@ namespace ProjetoConsultorio.Application.Controllers
             {
                 var innerException = ex.InnerException != null ? ex.InnerException.Message : "";
                 return StatusCode(500, $"Erro interno do servidor: {ex.Message}. Inner Exception: {innerException}");
-                
+
             }
         }
 

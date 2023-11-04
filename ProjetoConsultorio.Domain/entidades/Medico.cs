@@ -11,15 +11,19 @@ namespace ProjetoConsultorio.Domain.entidades
         public Medico()
         {
             this.disponibilidade = new HashSet<Disponibilidade>();
-            medicoconvenio = new List<MedicoConvenio>();
-            consultamedicopaciente = new List<ConsultaMedicoPaciente>();
+            this.medicoconvenio = new List<MedicoConvenio>();
+            this.consultamedicopaciente = new List<ConsultaMedicoPaciente>();
         }
         public string nome { get; set; }
+        public DateTime dataNascimento { get; set; }
+        public string genero { get; set; }
+        public string enderecoResidencial { get; set; }
+        public string numeroTelefone { get; set; }
+        public string email { get; set; }
         public string crm { get; set; }
         public string especializacao { get; set; }
         public virtual ICollection<Disponibilidade> disponibilidade { get; set; }
         public List<MedicoConvenio> medicoconvenio { get; set; }
-
         public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
 
 

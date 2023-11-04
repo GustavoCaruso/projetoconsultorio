@@ -1,0 +1,50 @@
+﻿@page
+@model www.Pages.ConvenioModel
+@{
+}
+
+<div class="container-fluid">
+
+    <div class="container-fluid">
+
+        <input type="hidden" id="txtid" value="0" />
+
+        <div class="form-group">
+            <label for="txtnome">Nome do convênio</label>
+            <input type="text" class="form-control" id="txtnome" placeholder="Nome do convênio">
+        </div>
+        
+        <button type="button" id="btnsalvar" class="btn btn-primary">Salvar</button>
+        <button type="button" id="btnlimpar" class="btn btn-primary">Limpar</button>
+
+        <hr />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Código</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Visualizar</th>
+                    <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody id="tabelaConvenio">
+            </tbody>
+        </table>
+
+        <table style="display:none">
+            <tr id="linhaConvenio">
+                <th scope="row" class="codigo"></th>
+                <td class="nome"></td>
+                <td><a href="#" class="alterar">Visualizar</a></td>
+                <td><a href="#" class="excluir">Excluir</a></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+@section Scripts{
+    <script src="~/js/convenio.js"></script>
+} 

@@ -72,7 +72,7 @@ namespace ProjetoConsultorio.Application.Controllers
         [Route("getMedicoFiltro/{crm}")]
         public IActionResult selecionarMedicoNome(String crm)
         {
-            
+
             return Execute(() => _service.GetFiltro<MedicoModel>(
                 p => p.crm.Contains(crm), //where
                 p => p.OrderBy(p => p.crm),//order by
