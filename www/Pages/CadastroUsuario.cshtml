@@ -11,43 +11,82 @@
     <title>@ViewData["Title"] - www</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            background-color: white;
+            padding-top: 50px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .container-fluid {
+            max-width: 600px;
+            margin: 0 auto;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 100px;
+            background-color: #40B385;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Usuário</h1>
+    <nav style="background-color: #40B385" class="navbar  navbar-expand-lg   fixed-top">
+        <div class="container">
+           
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a style="color:white" class="nav-link" href="/Index">Área do usuário</a>
+                    </li>
+                    <li class="nav-item">
+                        <a  style="color:white" class="nav-link" href="#">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a  style="color:white" class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
 
     <div class="container-fluid">
+        <h2 style="color:white" class="text-center  login-title">Cadastro de usuário</h2>
 
         <input type="hidden" id="txtid" value="0" />
 
         <div class="form-group">
-            <label for="txtnome">Nome</label>
+            <label style="color:white" for="txtnome">Nome</label>
             <input type="text" class="form-control" id="txtnome" placeholder="Nome">
         </div>
 
         <div class="form-group">
-            <label for="txtemail">E-mail</label>
+            <label style="color:white" for="txtemail">E-mail</label>
             <input type="email" class="form-control" id="txtemail" placeholder="E-mail">
         </div>
 
         <div class="form-group">
-            <label for="txtsenha">Senha</label>
+            <label style="color:white" for="txtsenha">Senha</label>
             <input type="password" class="form-control" id="txtsenha" placeholder="Senha">
         </div>
+        <div class="text-center">
+            <button type="button" id="btnsalvar" class="btn  btn-light">Criar usuário</button>
+            <button type="button" id="btnlimpar" class="btn btn-secondary">Limpar campos</button>
+        </div>
+        
 
-        <button type="button" id="btnsalvar" class="btn btn-primary">Criar Usuário</button>
-        <button type="button" id="btnlimpar" class="btn btn-primary">Limpar</button>
-
-        <hr />
-
-       
 
     </div>
 
-
-
-
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted fixed-bottom">
         <div class="container">
             &copy; 2023 - www - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
@@ -56,12 +95,6 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
-   
-     <script src="~/js/cadastrousuario.js"></script>
-   
-
-
-    
+    <script src="~/js/cadastrousuario.js"></script>
 </body>
 </html>

@@ -24,21 +24,21 @@ namespace ProjetoConsultorio.Application.Controllers
         }
 
         [HttpPost]
-        public IActionResult inserir(StatusConsultaModel StatusConsulta)
+        public IActionResult inserir(StatusConsultaModel statusConsulta)
         {
-            if (StatusConsulta == null)
+            if (statusConsulta == null)
                 return NotFound();
             else
-                return Execute(() => _service.Add<StatusConsultaModel, StatusConsultaValidator>(StatusConsulta));
+                return Execute(() => _service.Add<StatusConsultaModel, StatusConsultaValidator>(statusConsulta));
         }
 
         [HttpPut]
-        public IActionResult alterar(StatusConsultaModel StatusConsulta)
+        public IActionResult alterar(StatusConsultaModel statusConsulta)
         {
-            if (StatusConsulta == null)
+            if (statusConsulta == null)
                 return NotFound();
             else
-                return Execute(() => _service.Update<StatusConsultaModel, StatusConsultaValidator>(StatusConsulta));
+                return Execute(() => _service.Update<StatusConsultaModel, StatusConsultaValidator>(statusConsulta));
         }
 
         [HttpDelete("{id}")]

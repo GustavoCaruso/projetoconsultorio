@@ -22,8 +22,9 @@ namespace ProjetoConsultorio.Application.Controllers
         private IConfiguration _config;
         private IBaseService<Usuario> _service;
 
-        public UsuarioController(IConfiguration Configuration, 
-            IBaseService<Usuario> service) {
+        public UsuarioController(IConfiguration Configuration,
+            IBaseService<Usuario> service)
+        {
             _config = Configuration;
             _service = service;
         }
@@ -33,14 +34,14 @@ namespace ProjetoConsultorio.Application.Controllers
             if (Usuario == null)
                 return NotFound();
 
-            
+
             var existingUser = _service.GetFiltro<UsuarioModel>(p => p.email == Usuario.email, null, "", null).FirstOrDefault();
             if (existingUser != null)
             {
                 return StatusCode(StatusCodes.Status409Conflict, new { message = "Um usuário com este email já existe." });
             }
 
-        
+
             return Execute(() => _service.Add<UsuarioModel, UsuarioValidator>(Usuario));
         }
 
@@ -77,9 +78,9 @@ expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
         {
 
             var usuario = _service.GetFiltro<UsuarioModel>(
-               p => p.email== loginDetalhes.email 
-               && p.senha==loginDetalhes.senha, 
-               null,"", null).FirstOrDefault();
+               p => p.email == loginDetalhes.email
+               && p.senha == loginDetalhes.senha,
+               null, "", null).FirstOrDefault();
 
             return usuario;
         }
@@ -90,14 +91,17 @@ expires: DateTime.Now.AddMinutes(120), signingCredentials: credentials);
         public IActionResult Login([FromBody] UsuarioModel loginDetalhes)
         {
             UsuarioModel usu = ValidarUsuario(loginDetalhes);
-            if (usu!=null)
+            if (usu != null)
             {
-      
+
 
                 var tokenString = GerarTokenJWT();
-                return Ok(new { token = tokenString , 
-                                id = usu.id, 
-                                nome = usu.nome });
+                return Ok(new
+                {
+                    token = tokenString,
+                    id = usu.id,
+                    nome = usu.nome
+                });
             }
             else
             {

@@ -12,8 +12,8 @@ namespace ProjetoConsultorio.Service.validators
     {
         public ConvenioValidator()
         {
-            RuleFor(p => p.nome).NotEmpty().WithMessage("Informe uma descricao!");
-            RuleFor(p => p.nome).NotNull().WithMessage("Informe uma descricao!");
+            RuleFor(p => p.nome).NotEmpty().WithMessage("Informe o nome do convênio!");
+            RuleFor(p => p.nome).NotNull().WithMessage("Informe o nome do convênio!");
         }
     }
 }

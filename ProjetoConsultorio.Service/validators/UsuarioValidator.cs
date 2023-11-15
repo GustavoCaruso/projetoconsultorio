@@ -17,9 +17,9 @@ namespace ProjetoConsultorio.Service.validators
             RuleFor(p => p.nome).NotEmpty().WithMessage("Informe um nome!");
             //descricao nao pode ser null
             RuleFor(p => p.nome).NotNull().WithMessage("Informe um nome!");
-            RuleFor(p => p.senha).NotEmpty().WithMessage("Informe um senha!");
+            RuleFor(p => p.senha).NotEmpty().WithMessage("Informe uma senha!");
             //descricao nao pode ser null
-            RuleFor(p => p.senha).NotNull().WithMessage("Informe um senha!");
+            RuleFor(p => p.senha).NotNull().WithMessage("Informe uma senha!");
             RuleFor(p => p.email).NotEmpty().WithMessage("Informe um email!");
             //descricao nao pode ser null
             RuleFor(p => p.email).NotNull().WithMessage("Informe um email!");

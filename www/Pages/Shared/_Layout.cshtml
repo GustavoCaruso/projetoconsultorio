@@ -6,43 +6,81 @@
     <title>@ViewData["Title"] - www</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        header {
+            background-color: #66bb6a;
+            color: white;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar-brand i {
+                margin-right: 5px;
+            }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        .footer {
+            background-color: #F4F4F4; /* Cinza Escuro */
+            color: #fff; /* Texto branco para contrastar */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg ">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">www</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" href="/Principal">Consultório médico</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Principal">Home</a>
+                            <a class="nav-link" asp-area="" asp-page="/Principal">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Convenio">Convênio</a>
+                            <a class="nav-link" asp-area="" asp-page="/Agenda">Agenda</a>
                         </li>
+                        <!-- Adicione o dropdown "Outros" aqui -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Outros
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="/Procedimento">Procedimento</a>
+                                <a class="dropdown-item" href="/StatusConsulta">Status da Consulta</a>
+                            </div>
+                        </li>
+                        <!-- Fim do dropdown "Outros" -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" id="btnsair" href="">Sair</a>
+                            <a class="nav-link" id="btnsair" href="#">Sair</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - www - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    <footer class="border-top footer text-muted py-3">
+        <div class="container text-center">
+            &copy; 2023 - Consultório médico - <a href="/Privacy">Política de Privacidade</a>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -52,15 +90,14 @@
         token = sessionStorage.getItem('token');
 
         if (token == null || token == "")
-            window.location.href = '/index'
-
+            window.location.href = '/index';
 
         $("#btnsair").click(function () {
             sessionStorage.removeItem('token');
             sessionStorage.removeItem('idUsuario');
             sessionStorage.removeItem('nomeUsuario');
-            window.location.href = '/index'
-        })
+            window.location.href = '/index';
+        });
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)

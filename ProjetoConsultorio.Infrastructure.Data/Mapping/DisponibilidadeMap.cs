@@ -1,35 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using ProjetoConsultorio.Domain.entidades;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjetoConsultorio.Infrastructure.Data.Mapping
 {
     public class DisponibilidadeMap : IEntityTypeConfiguration<Disponibilidade>
     {
-         public void Configure(EntityTypeBuilder<Disponibilidade> builder)
+        public void Configure(EntityTypeBuilder<Disponibilidade> builder)
         {
             builder.ToTable("disponibilidade");
-            builder.HasKey(d => d.id);
+            builder.HasKey(p => p.id);
 
-          
-            builder.Property(d => d.diaDaSemana).HasColumnName("diaDaSemana");
-            builder.Property(d => d.horaInicio).HasColumnName("horaInicio");
-            builder.Property(d => d.horaFim).HasColumnName("horaFim");
+            builder.Property(p => p.diaDaSemana).IsRequired()
+                .HasColumnType("int")
+                .HasColumnName("diaDaSemana");
 
-            //relacionamento com médico
-            builder.HasOne(p => p.medico).WithMany(c => c.disponibilidade)
-                .HasConstraintName("fk_medico_disponibilidade")
-                .HasForeignKey(p => p.medicoId)
-                .OnDelete(DeleteBehavior.NoAction);
+            builder.Property(p => p.horaInicio).IsRequired()
+                .HasColumnType("time")
+                .HasColumnName("horaInicio");
+
+            builder.Property(p => p.horaFim).IsRequired()
+                .HasColumnType("time")
+                .HasColumnName("horaFim");
 
         }
-    
-
-    
     }
 }

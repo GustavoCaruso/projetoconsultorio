@@ -25,12 +25,12 @@ namespace ProjetoConsultorio.Application.Controllers
 
 
         [HttpPost]
-        public IActionResult inserir(DisponibilidadeModel Disponibilidade)
+        public IActionResult inserir(DisponibilidadeModel disponibilidade)
         {
-            if (Disponibilidade == null)
+            if (disponibilidade == null)
                 return NotFound();
             return Execute(() => _service.Add<DisponibilidadeModel,
-                DisponibilidadeValidator>(Disponibilidade));
+                DisponibilidadeValidator>(disponibilidade));
 
         }
 
@@ -73,17 +73,6 @@ namespace ProjetoConsultorio.Application.Controllers
 
 
 
-        [HttpGet]
-        [Route("getDisponibilidadesCategoria/{medicoId}")]
-        public IActionResult selecionarDisponibilidadesCategoria(int medicoId)
-        {
-            //select * from Disponibilidades  where idCategoria =1 order by Disponibilidades
-            return Execute(() => _service.GetFiltro<DisponibilidadeModel>(
-                p => p.medicoId == medicoId, //where
-                p => p.OrderBy(p => p.diaDaSemana),//order by
-                "categoria", null)); //include, top
-
-        }
 
 
         [HttpGet]

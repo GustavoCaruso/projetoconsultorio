@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjetoConsultorio.Domain.entidades
 {
-    public class MedicoConvenio : BaseEntity
+    public class PacienteConvenio : BaseEntity
     {
-        public int medicoId { get; set; }
+        public int pacienteId { get; set; }
         public int convenioId { get; set; }
-        public virtual Medico medico { get; set; }
-        public virtual Convenio convenio { get; set; }
 
+        public virtual Convenio convenio { get; set; }
+        public virtual Paciente paciente { get; set; }
     }
 }

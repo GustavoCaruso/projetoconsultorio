@@ -8,11 +8,12 @@ namespace ProjetoConsultorio.Domain.entidades
 {
     public class Medico:BaseEntity
     {
+      
+
         public Medico()
         {
-            this.disponibilidade = new HashSet<Disponibilidade>();
-            this.medicoconvenio = new List<MedicoConvenio>();
-            this.consultamedicopaciente = new List<ConsultaMedicoPaciente>();
+            this.medicoconvenio = new HashSet<MedicoConvenio>();
+            this.medicodisponibilidade = new HashSet<MedicoDisponibilidade>();
         }
         public string nome { get; set; }
         public DateTime dataNascimento { get; set; }
@@ -22,13 +23,11 @@ namespace ProjetoConsultorio.Domain.entidades
         public string email { get; set; }
         public string crm { get; set; }
         public string especializacao { get; set; }
-        public virtual ICollection<Disponibilidade> disponibilidade { get; set; }
-        public List<MedicoConvenio> medicoconvenio { get; set; }
-        public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
 
+        
+        public virtual ICollection<MedicoConvenio> medicoconvenio { get; set; }
 
-        //public ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+        public virtual ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
 
-        //public List<MedicoConsulta> medicoconsulta { get; set; }
     }
 }

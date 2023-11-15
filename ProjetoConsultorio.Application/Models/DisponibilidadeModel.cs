@@ -10,11 +10,9 @@ namespace ProjetoConsultorio.Application.Models
     {
         public int id { get; set; }
         public int diaDaSemana { get; set; }
-        public DateTime horaInicio { get; set; }
-        public DateTime horaFim { get; set; }
-        public bool disponivel { get; set; }
-        public int medicoId { get; set; }
-        public Medico medico { get; set; }
-        //public ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+        public TimeSpan horaInicio { get; set; }
+        public TimeSpan horaFim { get; set; }
+      
+       
     }
 }

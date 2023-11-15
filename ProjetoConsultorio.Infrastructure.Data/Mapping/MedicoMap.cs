@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using ProjetoConsultorio.Domain.entidades; // Certifique-se de usar o namespace correto
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjetoConsultorio.Domain.entidades;
 
 namespace ProjetoConsultorio.Infrastructure.Data.Mapping
 {
@@ -28,21 +23,36 @@ namespace ProjetoConsultorio.Infrastructure.Data.Mapping
                 .HasColumnName("crm"); // nome da coluna no BD
 
             builder.Property(p => p.especializacao)
-               .IsRequired()
-               .HasColumnType("varchar(150)")
-               .HasColumnName("especializacao"); // nome da coluna no BD
+                .IsRequired()
+                .HasColumnType("varchar(150)")
+                .HasColumnName("especializacao"); // nome da coluna no BD
 
-            // Configurar relacionamento muitos-para-muitos com Convênio
-            builder
-                .HasMany(m => m.medicoconvenio)
-                .WithOne(mc => mc.medico)
-                .HasForeignKey(mc => mc.medicoId);
+            builder.Property(p => p.dataNascimento)
+                .IsRequired()
+                .HasColumnType("datetime")
+                .HasColumnName("dataNascimento"); // nome da coluna no BD
 
-            // Configurar relacionamento um-para-muitos com ConsultaMedicoPaciente
-            builder
-                .HasMany(m => m.consultamedicopaciente)
-                .WithOne(cmp => cmp.Medico)
-                .HasForeignKey(cmp => cmp.medicoId);
+            builder.Property(p => p.genero)
+                .IsRequired()
+                .HasColumnType("varchar(50)")
+                .HasColumnName("genero");
+
+            builder.Property(p => p.enderecoResidencial)
+                .IsRequired()
+                .HasColumnType("varchar(255)")
+                .HasColumnName("enderecoResidencial");
+
+            builder.Property(p => p.numeroTelefone)
+                .IsRequired()
+                .HasColumnType("varchar(20)")
+                .HasColumnName("numeroTelefone");
+
+            builder.Property(p => p.email)
+                .IsRequired()
+                .HasColumnType("varchar(150)")
+                .HasColumnName("email");
+
+
 
         }
     }

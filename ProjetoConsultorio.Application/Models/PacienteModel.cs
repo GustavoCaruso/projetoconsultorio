@@ -18,8 +18,8 @@ namespace ProjetoConsultorio.Application.Models
         public string telefone { get; set; }
         public string email { get; set; }
 
-        [JsonIgnore]
-        public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
-        //public List<Consulta> consulta { get; set; }
+        public virtual ICollection<PacienteConvenioModel> pacienteconvenio { get; set; }
+
+
     }
 }

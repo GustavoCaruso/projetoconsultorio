@@ -2,3 +2,117 @@
 @model www.Pages.PacienteModel
 @{
 }
+
+<h1 class="mb-4">Paciente</h1>
+
+<div class="container-fluid">
+
+    <div class="container">
+
+        <input type="hidden" id="txtid" value="0" />
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtnome">Nome</label>
+                    <input type="text" class="form-control" id="txtnome" placeholder="Nome">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtrg">RG</label>
+                    <input type="text" class="form-control" id="txtrg" placeholder="RG">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtcpf">CPF</label>
+                    <input type="text" class="form-control" id="txtcpf" placeholder="CPF">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtgenero">Gênero</label>
+                    <input type="text" class="form-control" id="txtgenero" placeholder="Gênero">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtestadoCivil">Estado civil</label>
+                    <input type="text" class="form-control" id="txtestadoCivil" placeholder="Estado civil">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txttelefone">Telefone</label>
+                    <input type="text" class="form-control" id="txttelefone" placeholder="Telefone">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="txtemail">E-mail</label>
+                    <input type="text" class="form-control" id="txtemail" placeholder="E-mail">
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="convenio">Convênios</label>
+                    <select id="convenio" class="form-control" multiple></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <button type="button" id="btnsalvar" class="btn btn-primary">Salvar</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" id="btnlimpar" class="btn btn-primary">Limpar</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Visualizar</th>
+                        <th scope="col">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela"></tbody>
+            </table>
+        </div>
+
+        <table style="display:none">
+            <tr id="linhaExemplo">
+                <th scope="row" class="codigo"></th>
+                <td class="nome"></td>
+                <td><a href="#" class="alterar">Visualizar</a></td>
+                <td><a href="#" class="excluir">Excluir</a></td>
+            </tr>
+        </table>
+
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/paciente.js"></script>
+}

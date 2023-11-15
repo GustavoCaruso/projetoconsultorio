@@ -13,23 +13,20 @@ namespace ProjetoConsultorio.Infrastructure.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<Procedimento> builder)
         {
-            builder.ToTable("procedimento");
-            builder.HasKey(p => p.id);
+            builder.ToTable("procedimento"); // nome da tabela no SQL Server
+            builder.HasKey(p => p.id); // definição de chave primária
 
-            builder.Property(p => p.nome)
-                .IsRequired()
-                .HasColumnType("string")
-                .HasColumnName("nome");
+            builder.Property(p => p.nome).IsRequired() // campo requerido
+                .HasColumnType("varchar(150)") // tipo da coluna
+                .HasColumnName("nome"); // nome da coluna no banco de dados
 
-            builder.Property(p => p.preco)
-                .IsRequired()
-                .HasColumnType("decimal(8,2)")
-                .HasColumnName("preco");
+            builder.Property(p => p.preco).IsRequired() // campo requerido
+               .HasColumnType("decimal(8,2)") // tipo da coluna
+               .HasColumnName("preco"); // nome da coluna no banco de dados
 
-            builder.Property(p => p.duracao)
-                .IsRequired()
-                .HasColumnType("int")
-                .HasColumnName("duracao");
+            builder.Property(p => p.duracao).IsRequired() // campo requerido
+               .HasColumnType("int") // tipo da coluna
+               .HasColumnName("duracao"); // nome da coluna no banco de dados
         }
     }
 }

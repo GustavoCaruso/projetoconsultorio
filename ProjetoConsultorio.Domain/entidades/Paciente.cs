@@ -10,9 +10,8 @@ namespace ProjetoConsultorio.Domain.entidades
     {
         public Paciente()
         {
-            consultamedicopaciente = new List<ConsultaMedicoPaciente>();
+            this.pacienteconvenio = new HashSet<PacienteConvenio>();
         }
-
         public string nome { get; set; }
         public string rg { get; set; }
         public string cpf { get; set; }
@@ -21,7 +20,7 @@ namespace ProjetoConsultorio.Domain.entidades
         public string telefone { get; set; }
         public string email { get; set; }
 
-        public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
-        // public List<Consulta> consulta { get; set; }
+        public virtual ICollection<PacienteConvenio> pacienteconvenio { get; set; }
+
     }
 }

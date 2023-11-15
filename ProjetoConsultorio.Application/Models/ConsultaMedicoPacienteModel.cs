@@ -9,7 +9,6 @@ namespace ProjetoConsultorio.Application.Models
     public class ConsultaMedicoPacienteModel
     {
         public int id { get; set; }
-        
         public int medicoId { get; set; }
         public Medico Medico { get; set; }
         public int PacienteId { get; set; }

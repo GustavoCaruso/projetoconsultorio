@@ -28,10 +28,12 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
         public DbSet<Procedimento> procedimento { get; set; }
         public DbSet<Usuario> usuario { get; set; }
 
+        public DbSet<PacienteConvenio> pacienteconvenio { get; set; }
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=Projeto32;integrated security=true;";
+            var stringConexao = @"Server=GUSTAVO-CARUSO;DataBase=ProjetoConsultorio17;integrated security=true;";
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder.UseSqlServer(stringConexao);
@@ -39,7 +41,8 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Produto>(new ProdutoMap().Configure);
             modelBuilder.Entity<Categoria>(new CategoriaMap().Configure);
             modelBuilder.Entity<Paciente>(new PacienteMap().Configure);
@@ -52,6 +55,9 @@ namespace ProjetoConsultorio.Infrastructure.Data.Context
             modelBuilder.Entity<StatusConsulta>(new StatusConsultaMap().Configure);
             modelBuilder.Entity<Usuario>(new UsuarioMap().Configure);
             modelBuilder.Entity<Procedimento>(new ProcedimentoMap().Configure);
+            modelBuilder.Entity<PacienteConvenio>(new PacienteConvenioMap().Configure);
+
+
 
 
         }

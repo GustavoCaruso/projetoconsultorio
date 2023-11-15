@@ -1,12 +1,11 @@
 ﻿@page
-@model www.Pages.ConvenioModel
+@model www.Pages.ProcedimentoModel
 @{
 }
 
 
-
 <div class="container mt-5">
-    <h1>Convênio</h1>
+    <h1>Procedimento</h1>
 
     <div class="container">
 
@@ -14,10 +13,18 @@
 
         <div class="form-group">
             <label for="txtnome">Nome</label>
-            <input type="text" class="form-control" id="txtnome" placeholder="Nome" required>
+            <input type="text" class="form-control" id="txtnome" placeholder="Nome">
         </div>
 
+        <div class="form-group">
+            <label for="txtduracao">Duração em minutos</label>
+            <input type="number" class="form-control" id="txtduracao" placeholder="Duração em minutos">
+        </div>
 
+        <div class="form-group">
+            <label for="txtpreco">Preço</label>
+            <input type="text" class="form-control" id="txtpreco" placeholder="Preço">
+        </div>
 
         <button type="button" id="btnsalvar" class="btn btn-primary">Salvar</button>
         <button type="button" id="btnlimpar" class="btn btn-secondary">Limpar</button>
@@ -33,12 +40,12 @@
                     <th scope="col">Excluir</th>
                 </tr>
             </thead>
-            <tbody id="tabelaConvenio">
+            <tbody id="tabela">
             </tbody>
         </table>
 
         <table style="display:none">
-            <tr id="linhaConvenio">
+            <tr id="linhaExemplo">
                 <th scope="row" class="codigo"></th>
                 <td class="nome"></td>
                 <td><a href="#" class="alterar">Visualizar</a></td>
@@ -51,5 +58,5 @@
 
 
 @section Scripts{
-    <script src="~/js/convenio.js"></script>
+    <script src="~/js/procedimento.js"></script>
 } 

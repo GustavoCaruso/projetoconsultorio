@@ -6,15 +6,18 @@ using System.Threading.Tasks;
 
 namespace ProjetoConsultorio.Domain.entidades
 {
-    public class Disponibilidade: BaseEntity
+    public class Disponibilidade : BaseEntity
     {
-       
+        public Disponibilidade()
+        {
+            this.medicodisponibilidade = new HashSet<MedicoDisponibilidade>();
+        }
         public int diaDaSemana { get; set; }
-        public DateTime horaInicio { get; set; }
-        public DateTime horaFim { get; set; }
-        public bool disponivel { get; set; }
-        public int medicoId { get; set; }
-        public virtual Medico medico { get; set; }
-        //public ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+        public TimeSpan horaInicio { get; set; }
+        public TimeSpan horaFim { get; set; }
+
+
+        public virtual ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+
     }
 }

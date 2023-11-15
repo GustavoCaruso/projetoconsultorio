@@ -17,6 +17,23 @@ namespace ProjetoConsultorio.Service.validators
 
             RuleFor(p => p.rg).NotEmpty().WithMessage("Informe o rg!");
             RuleFor(p => p.rg).NotNull().WithMessage("Informe o rg!");
+
+            RuleFor(p => p.cpf).NotEmpty().WithMessage("Informe o cpf!");
+            RuleFor(p => p.cpf).NotNull().WithMessage("Informe o cpf!");
+
+            RuleFor(p => p.genero).NotEmpty().WithMessage("Informe o genero!");
+            RuleFor(p => p.genero).NotNull().WithMessage("Informe o genero!");
+
+            RuleFor(p => p.estadoCivil).NotEmpty().WithMessage("Informe o estado civil!");
+            RuleFor(p => p.estadoCivil).NotNull().WithMessage("Informe o estado civil!");
+
+            RuleFor(p => p.telefone).NotEmpty().WithMessage("Informe o telefone!");
+            RuleFor(p => p.telefone).NotNull().WithMessage("Informe o telefone!");
+
+            RuleFor(p => p.email).NotEmpty().WithMessage("Informe o e-mail!");
+            RuleFor(p => p.email).NotNull().WithMessage("Informe o e-mail!");
+
+          
         }
     
     }

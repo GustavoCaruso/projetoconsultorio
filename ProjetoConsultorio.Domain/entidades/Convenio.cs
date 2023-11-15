@@ -8,12 +8,17 @@ namespace ProjetoConsultorio.Domain.entidades
 {
     public class Convenio: BaseEntity
     {
+
         public Convenio()
         {
-            this.medicoconvenio = new List<MedicoConvenio>();
+            this.medicoconvenio = new HashSet<MedicoConvenio>();
+            this.pacienteconvenio = new HashSet<PacienteConvenio>();
         }
+
         public string nome { get; set; }
-        public List<MedicoConvenio> medicoconvenio { get; set; }
+
+        public virtual ICollection<MedicoConvenio> medicoconvenio { get; set; }
+        public virtual ICollection<PacienteConvenio> pacienteconvenio { get; set; }
 
     }
 }

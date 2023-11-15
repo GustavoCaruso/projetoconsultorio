@@ -9,9 +9,9 @@ namespace ProjetoConsultorio.Domain.entidades
     public class MedicoDisponibilidade : BaseEntity
     {
         public int medicoId { get; set; }
-        public Medico medico { get; set; }
-
         public int disponibilidadeId { get; set; }
-        public Disponibilidade disponibilidade { get; set; }
+        public virtual Medico medico { get; set; }
+        public virtual Disponibilidade disponibilidade { get; set; }
+        
     }
 }

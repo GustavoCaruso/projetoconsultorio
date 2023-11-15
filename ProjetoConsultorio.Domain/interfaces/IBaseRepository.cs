@@ -17,8 +17,8 @@ namespace ProjetoConsultorio.Domain.interfaces
         TEntity Select(int id);
 
         public IList<TEntity> GetFiltro<TEntity>(
-       Expression<Func<TEntity, bool>> filter = null,
-       Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+        Expression<Func<TEntity, bool>> filter = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
         string includeProperties = null,
         int? take = null)
         where TEntity : class;

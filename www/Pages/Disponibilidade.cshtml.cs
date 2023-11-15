@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace www.Pages
 {
-    public class PrincipalModel : PageModel
+    public class DisponibilidadeModel : PageModel
     {
         public void OnGet()
         {

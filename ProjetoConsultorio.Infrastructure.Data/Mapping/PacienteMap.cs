@@ -44,13 +44,6 @@ namespace ProjetoConsultorio.Infrastructure.Data.Mapping
             builder.Property(p => p.email).IsRequired() 
                 .HasColumnType("varchar(150)") 
                 .HasColumnName("email");
-            // Configurar relacionamento um-para-muitos com ConsultaMedicoPaciente
-            builder
-                .HasMany(p => p.consultamedicopaciente)
-                .WithOne(cmp => cmp.Paciente)
-                .HasForeignKey(cmp => cmp.pacienteId);
-
-
         }
     }
 }

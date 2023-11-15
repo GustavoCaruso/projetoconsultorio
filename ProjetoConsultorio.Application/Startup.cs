@@ -93,7 +93,6 @@ namespace ProjetoConsultorio.Application
                 config.CreateMap<Disponibilidade, DisponibilidadeModel>();
                 config.CreateMap<DisponibilidadeModel, Disponibilidade>();
 
-
                 config.CreateMap<MedicoDisponibilidade, MedicoDisponibilidadeModel>();
                 config.CreateMap<MedicoDisponibilidadeModel, MedicoDisponibilidade>();
 
@@ -112,6 +111,12 @@ namespace ProjetoConsultorio.Application
                 config.CreateMap<Usuario, UsuarioModel>();
                 config.CreateMap<UsuarioModel, Usuario>();
 
+                config.CreateMap<Procedimento, ProcedimentoModel>();
+                config.CreateMap<ProcedimentoModel, Procedimento>();
+
+                config.CreateMap<PacienteConvenio, PacienteConvenioModel>();
+                config.CreateMap<PacienteConvenioModel, PacienteConvenio>();
+
             }).CreateMapper());
 
             //injecao de dependia
@@ -129,8 +134,6 @@ namespace ProjetoConsultorio.Application
 
             services.AddScoped<IBaseService<Disponibilidade>, BaseService<Disponibilidade>>();
             services.AddScoped<IBaseRepository<Disponibilidade>, BaseRepository<Disponibilidade>>();
-
-            
 
             services.AddScoped<IBaseService<Convenio>, BaseService<Convenio>>();
             services.AddScoped<IBaseRepository<Convenio>, BaseRepository<Convenio>>();
@@ -151,6 +154,12 @@ namespace ProjetoConsultorio.Application
 
             services.AddScoped<IBaseService<Usuario>, BaseService<Usuario>>();
             services.AddScoped<IBaseRepository<Usuario>, BaseRepository<Usuario>>();
+
+            services.AddScoped<IBaseService<Procedimento>, BaseService<Procedimento>>();
+            services.AddScoped<IBaseRepository<Procedimento>, BaseRepository<Procedimento>>();
+
+            services.AddScoped<IBaseService<PacienteConvenio>, BaseService<PacienteConvenio>>();
+            services.AddScoped<IBaseRepository<PacienteConvenio>, BaseRepository<PacienteConvenio>>();
 
 
         }

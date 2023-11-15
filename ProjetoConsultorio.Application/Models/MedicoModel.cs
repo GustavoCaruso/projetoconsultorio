@@ -19,10 +19,10 @@ namespace ProjetoConsultorio.Application.Models
         public string crm { get; set; }
         public string especializacao { get; set; }
 
-        
-        public List<MedicoConvenio> medicoconvenio { get; set; }
-        [JsonIgnore]
-        public List<ConsultaMedicoPaciente> consultamedicopaciente { get; set; }
-        //public ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+        public virtual ICollection<MedicoConvenio> medicoconvenio { get; set; }
+        public virtual ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+
+
+
     }
 }

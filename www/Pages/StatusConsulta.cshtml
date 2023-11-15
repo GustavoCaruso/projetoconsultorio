@@ -1,12 +1,12 @@
 ﻿@page
-@model www.Pages.ConvenioModel
+@model www.Pages.StatusConsultaModel
 @{
 }
 
 
 
 <div class="container mt-5">
-    <h1>Convênio</h1>
+    <h1>Status da consulta</h1>
 
     <div class="container">
 
@@ -14,7 +14,7 @@
 
         <div class="form-group">
             <label for="txtnome">Nome</label>
-            <input type="text" class="form-control" id="txtnome" placeholder="Nome" required>
+            <input type="text" class="form-control" id="txtnome" placeholder="Nome">
         </div>
 
 
@@ -33,12 +33,12 @@
                     <th scope="col">Excluir</th>
                 </tr>
             </thead>
-            <tbody id="tabelaConvenio">
+            <tbody id="tabela">
             </tbody>
         </table>
 
         <table style="display:none">
-            <tr id="linhaConvenio">
+            <tr id="linhaExemplo">
                 <th scope="row" class="codigo"></th>
                 <td class="nome"></td>
                 <td><a href="#" class="alterar">Visualizar</a></td>
@@ -51,5 +51,5 @@
 
 
 @section Scripts{
-    <script src="~/js/convenio.js"></script>
+    <script src="~/js/statusconsulta.js"></script>
 } 

@@ -9,10 +9,8 @@ namespace ProjetoConsultorio.Application.Models
     public class MedicoDisponibilidadeModel
     {
         public int id { get; set; }
-        //public int medicoId { get; set; }
-        //public Medico medico { get; set; }
-
-       // public int disponibilidadeId { get; set; }
-       // public Disponibilidade disponibilidade { get; set; }
+        public int medicoId { get; set; }
+        public int disponibilidadeId { get; set; }
+      
     }
 }
