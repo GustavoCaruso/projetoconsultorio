@@ -20,7 +20,7 @@ namespace ProjetoConsultorio.Infrastructure.Data.Mapping
                 .HasColumnType("varchar(150)") // tipo da coluna
                 .HasColumnName("nome"); // nome da coluna no banco de dados
 
-            builder.Property(p => p.preco).IsRequired() // campo requerido
+            builder.Property(p => p.preco) // campo requerido
                .HasColumnType("decimal(8,2)") // tipo da coluna
                .HasColumnName("preco"); // nome da coluna no banco de dados
 

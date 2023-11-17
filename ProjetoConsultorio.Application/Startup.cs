@@ -117,6 +117,9 @@ namespace ProjetoConsultorio.Application
                 config.CreateMap<PacienteConvenio, PacienteConvenioModel>();
                 config.CreateMap<PacienteConvenioModel, PacienteConvenio>();
 
+                config.CreateMap<Consulta, ConsultaModel>();
+                config.CreateMap<ConsultaModel, Consulta>();
+
             }).CreateMapper());
 
             //injecao de dependia
@@ -160,6 +163,9 @@ namespace ProjetoConsultorio.Application
 
             services.AddScoped<IBaseService<PacienteConvenio>, BaseService<PacienteConvenio>>();
             services.AddScoped<IBaseRepository<PacienteConvenio>, BaseRepository<PacienteConvenio>>();
+
+            services.AddScoped<IBaseService<Consulta>, BaseService<Consulta>>();
+            services.AddScoped<IBaseRepository<Consulta>, BaseRepository<Consulta>>();
 
 
         }

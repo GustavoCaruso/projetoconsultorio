@@ -11,6 +11,7 @@ namespace ProjetoConsultorio.Domain.entidades
         public Paciente()
         {
             this.pacienteconvenio = new HashSet<PacienteConvenio>();
+            this.consulta = new HashSet<Consulta>();
         }
         public string nome { get; set; }
         public string rg { get; set; }
@@ -21,6 +22,7 @@ namespace ProjetoConsultorio.Domain.entidades
         public string email { get; set; }
 
         public virtual ICollection<PacienteConvenio> pacienteconvenio { get; set; }
+        public virtual ICollection<Consulta> consulta { get; set; }
 
     }
 }

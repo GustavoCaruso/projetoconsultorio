@@ -1,0 +1,89 @@
+﻿@page
+@model www.Pages.ConsultaModel
+@{
+}
+
+<h1>Consulta</h1>
+
+<div class="container mt-4">
+
+    <input type="hidden" id="txtid" value="0" />
+
+    <div class="form-group">
+        <label for="txtdata">Data da consulta</label>
+        <input type="date" class="form-control" id="txtdata" placeholder="Data da consulta" required>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="txthoraInicio">Horário de início</label>
+            <input type="time" class="form-control" id="txthoraInicio" placeholder="Horário de início" required step="60">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="txthoraFim">Horário de fim</label>
+            <input type="time" class="form-control" id="txthoraFim" placeholder="Horário de fim" required step="60">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="procedimento">Procedimento</label>
+        <select id="procedimento" class="form-control">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="paciente">Paciente</label>
+        <select id="paciente" class="form-control">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="convenio">Convênio</label>
+        <select id="convenio" class="form-control">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="statusConsulta">Status Consulta</label>
+        <select id="statusConsulta" class="form-control">
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="medico">Médico</label>
+        <select id="medico" class="form-control">
+        </select>
+    </div>
+
+    <div class="form-row">
+        <button type="button" id="btnsalvar" class="btn btn-primary mr-2">Salvar</button>
+        <button type="button" id="btnlimpar" class="btn btn-secondary">Limpar</button>
+    </div>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Visualizar</th>
+                <th scope="col">Excluir</th>
+            </tr>
+        </thead>
+        <tbody id="tabela">
+        </tbody>
+    </table>
+
+    <table style="display:none">
+        <tr id="linhaExemplo">
+            <th scope="row" class="codigo"></th>
+            <td class="data"></td>
+            <td><a href="#" class="alterar">Visualizar</a></td>
+            <td><a href="#" class="excluir">Excluir</a></td>
+        </tr>
+    </table>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/Consulta.js"></script>
+}

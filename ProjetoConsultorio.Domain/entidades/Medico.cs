@@ -14,6 +14,7 @@ namespace ProjetoConsultorio.Domain.entidades
         {
             this.medicoconvenio = new HashSet<MedicoConvenio>();
             this.medicodisponibilidade = new HashSet<MedicoDisponibilidade>();
+            this.consulta = new HashSet<Consulta>();
         }
         public string nome { get; set; }
         public DateTime dataNascimento { get; set; }
@@ -28,6 +29,7 @@ namespace ProjetoConsultorio.Domain.entidades
         public virtual ICollection<MedicoConvenio> medicoconvenio { get; set; }
 
         public virtual ICollection<MedicoDisponibilidade> medicodisponibilidade { get; set; }
+        public virtual ICollection<Consulta> consulta { get; set; }
 
     }
 }

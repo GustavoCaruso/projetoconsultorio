@@ -12,68 +12,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Sua Página</title>
     <style>
-        /* Adicione estilos personalizados aqui */
+        
         .custom-grid {
-            background-color: #28a745; /* Verde Bootstrap */
-            color: #fff; /* Texto branco */
+            background-color: #66bb6a;
+            color: #fff;
             padding: 40px;
             border-radius: 10px;
             text-align: center;
-            height: 300px; /* Altura ajustada */
-            margin-bottom: 20px; /* Espaçamento entre as grids quando na vertical */
+            height: 300px; 
+            margin-bottom: 85px; 
+            transition: background-color 0.3s ease-in-out; 
         }
+
+            .custom-grid:hover {
+                background-color: #4b8d4b;
+                transform: scale(1.05);
+            }
 
         .last-word-bold {
             font-weight: bold;
         }
 
         .custom-link {
-            text-decoration: none; /* Remover sublinhado */
+            text-decoration: none;
             color: #fff;
         }
 
             .custom-link:hover {
-                color: #fff; /* Cor do texto no hover */
-                text-decoration: none; /* Remover sublinhado no hover */
+                color: #fff; 
+                text-decoration: none; 
             }
-
-      
     </style>
 </head>
 <body style="background-color: #f8f9fa; ">
-    <!-- Header (seu cabeçalho) -->
-    <!-- Conteúdo principal -->
+   
     <div class="container mt-5">
         <div class="row">
-            <!-- Grid 1: Cadastro de Médico -->
+          
             <div class="col-md-4">
-                <a href="/cadastrarMedico" class="custom-link">
+                <a href="/Medico" class="custom-link">
                     <div class="custom-grid d-flex align-items-center justify-content-center">
                         <i class="fas fa-user-md fa-3x mb-3"></i>
                         <h2>Cadastro de <span class="last-word-bold">Médico</span></h2>
-                        <!-- Adicione o conteúdo do cadastro de médico aqui -->
+                       
                     </div>
                 </a>
             </div>
 
-            <!-- Grid 2: Cadastro de Paciente -->
+          
             <div class="col-md-4">
-                <a href="/cadastrarPaciente" class="custom-link">
+                <a href="/Paciente" class="custom-link">
                     <div class="custom-grid d-flex align-items-center justify-content-center">
                         <i class="fas fa-user fa-3x mb-3"></i>
                         <h2>Cadastro de <span class="last-word-bold">Paciente</span></h2>
-                        <!-- Adicione o conteúdo do cadastro de paciente aqui -->
+                     
                     </div>
                 </a>
             </div>
 
-            <!-- Grid 3: Cadastro de Consulta -->
+          
             <div class="col-md-4">
-                <a href="/cadastrarConsulta" class="custom-link">
+                <a href="/Consulta" class="custom-link">
                     <div class="custom-grid d-flex align-items-center justify-content-center">
                         <i class="far fa-calendar-alt fa-3x mb-3"></i>
                         <h2>Cadastro de <span class="last-word-bold">Consulta</span></h2>
-                        <!-- Adicione o conteúdo do cadastro de consulta aqui -->
+                      
                     </div>
                 </a>
             </div>

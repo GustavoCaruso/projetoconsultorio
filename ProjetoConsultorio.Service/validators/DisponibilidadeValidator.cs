@@ -13,16 +13,15 @@ namespace ProjetoConsultorio.Service.validators
     {
         public DisponibilidadeValidator()
         {
-            //descricao nao pode ser vazia
-            RuleFor(p => p.diaDaSemana).NotEmpty().WithMessage("Informe um nome!");
-            //descricao nao pode ser null
-            RuleFor(p => p.diaDaSemana).NotNull().WithMessage("Informe um nome!");
-            RuleFor(p => p.horaInicio).NotEmpty().WithMessage("Informe uma senha!");
-            //descricao nao pode ser null
-            RuleFor(p => p.horaInicio).NotNull().WithMessage("Informe uma senha!");
-            RuleFor(p => p.horaFim).NotEmpty().WithMessage("Informe um email!");
-            //descricao nao pode ser null
-            RuleFor(p => p.horaFim).NotNull().WithMessage("Informe um email!");
+         
+            RuleFor(p => p.diaDaSemana).NotEmpty().WithMessage("Informe um diaDaSemana!");
+            RuleFor(p => p.diaDaSemana).NotNull().WithMessage("Informe um diaDaSemana!");
+
+            RuleFor(p => p.horaInicio).NotEmpty().WithMessage("Informe uma horaInicio!");
+            RuleFor(p => p.horaInicio).NotNull().WithMessage("Informe uma horaInicio!");
+
+            RuleFor(p => p.horaFim).NotEmpty().WithMessage("Informe um horaFim!");
+            RuleFor(p => p.horaFim).NotNull().WithMessage("Informe um horaFim!");
         }
     }
 }

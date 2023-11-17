@@ -13,12 +13,14 @@ namespace ProjetoConsultorio.Domain.entidades
         {
             this.medicoconvenio = new HashSet<MedicoConvenio>();
             this.pacienteconvenio = new HashSet<PacienteConvenio>();
+            this.consulta = new HashSet<Consulta>();
         }
 
         public string nome { get; set; }
 
         public virtual ICollection<MedicoConvenio> medicoconvenio { get; set; }
         public virtual ICollection<PacienteConvenio> pacienteconvenio { get; set; }
+        public virtual ICollection<Consulta> consulta { get; set; }
 
     }
 }

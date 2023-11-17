@@ -67,8 +67,16 @@ $(document).ready(function () {
 
                 carregarStatusConsulta();
             },
-            failure: function (response) {
-                alert("Erro ao carregar os dados: " + response);
+            error: function (jqXHR) {
+                if (jqXHR.status === 400) {
+                    var mensagem = "";
+                    $(jqXHR.responseJSON.errors).each(function (index, elemento) {
+                        mensagem = mensagem + elemento.errorMessage + "\n";
+                    });
+                    alert(mensagem);
+                } else {
+                    alert("Erro ao salvar os dados.");
+                }
             }
         });
 

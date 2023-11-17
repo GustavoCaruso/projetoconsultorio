@@ -8,6 +8,11 @@ namespace ProjetoConsultorio.Domain.entidades
 {
     public class StatusConsulta : BaseEntity
     {
+        public StatusConsulta()
+        {
+            this.consulta = new HashSet<Consulta>();
+        }
         public string nome { get; set; }
+        public virtual ICollection<Consulta> consulta { get; set; }
     }
 }
